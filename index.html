@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demoApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <!-- main library implementation example -->
+        <title ng-dynamic-title
+               root-title="ngDynamicTitle Demo"
+               sub-title="dynamic page titles in angular 1.x when using ui-router"
+               >ngDynamicTitle Demo</title>
+
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="//s.mlcdn.co/animate.css">
+    </head>
+    <body>
+      <!-- body goes here -->
+
+      <div class="container">
+        <div class="row">
+
+          <header ng-controller="rootCntl">
+            <br />
+            <span style="display: block;text-align: center;" ng-class="{'bounce animated': animationClasses}">
+              <i class="fa fa-arrow-up" aria-hidden="true"></i>
+              Look at the tab/window title to see this library work
+            </span>
+            <br />
+            <br />
+
+            <div class="jumbotron">
+              <h1>ngDynamicTitle</h1>
+              <p>Dynamic page titles in Angular.js 1.x when using ui-router</p>
+              <p>
+                <a class="btn btn-primary btn-lg" href="#" role="button">Install</a>
+                <a class="btn btn-default btn-lg" ui-sref="home" role="button">Home</a>
+                <a class="btn btn-default btn-lg" ui-sref="docs" role="button">Docs</a>
+              </p>
+            </div>
+          </header>
+
+          <div ui-view></div>
+
+        </div>
+      </div>
+
+      <script src="./node_modules/angular/angular.min.js"></script>
+      <script src="./node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+      <!-- put dist file here -->
+
+      <script src="./src/module.js"></script>
+      <script src="./src/update-page-title-directive.js"></script>
+
+      <script type="text/javascript">
+        // setup the demo module
+        angular.module('demoApp',[
+          'ui.router',
+          'ng.dynamic-title'
+        ]);
+
+        // setup states for demo
+        angular.module('demoApp').config([
+          '$stateProvider',
+          '$urlRouterProvider',
+          function(
+            $stateProvider,
+            $urlRouterProvider
+          ) {
+
+          $urlRouterProvider.otherwise('home');
+
+          $stateProvider
+            .state('home', {
+              url: '/home',
+              template: [
+                '<h3>ngDynamicTitle</h3>',
+                '<a ui-sref="docs">Docs</button>'
+              ].join(''),
+              data: {
+                ngDynamicTitle: 'Homepage'
+              }
+            })
+            .state('docs', {
+              url: '/docs',
+              template: '<h3>Documentation</h3>',
+              data: {
+                ngDynamicTitle: 'Documentation'
+              }
+            });
+
+          }
+        ]);
+
+        angular.module('demoApp').controller('rootCntl', [
+          '$scope',
+          '$timeout',
+          function($scope,$timeout) {
+            function animateMessagePointingOutTitle() {
+              $scope.animationClasses = true;
+              $timeout(function() {
+                $scope.animationClasses = false;
+              }, 1000);
+            }
+            $scope.$on('$stateChangeSuccess', animateMessagePointingOutTitle);
+          }
+        ]);
+      </script>
+    </body>
+</html>

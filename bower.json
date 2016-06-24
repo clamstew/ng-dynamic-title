@@ -1,0 +1,23 @@
+{
+  "name": "ng-dynamic-title",
+  "version": "1.0.0",
+  "authors": [
+    "Clay Stewart <claytonmstewart@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "spec",
+    "src",
+    ".gitignore",
+    ".jshintrc",
+    ".npmignore",
+    "Gruntfile.js",
+    "index.html",
+    "karma.conf.js"
+  ]
+}
