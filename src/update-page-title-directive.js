@@ -20,7 +20,7 @@ angular.module('ng.dynamic-title').directive('ngDynamicTitle',[
         if (toState.data && toState.data.ngDynamicTitle && title) {
           title = toState.data.ngDynamicTitle + ' | ' + title;
         } else {
-          title = toState.data.ngDynamicTitle
+          title = toState.data.ngDynamicTitle;
         }
 
         $timeout(function() {
@@ -34,7 +34,7 @@ angular.module('ng.dynamic-title').directive('ngDynamicTitle',[
 
     return {
       restrict: 'A',
-      link: ['$scope', '$element', link],
+      link: link,
       scope: {
         'rootTitle': '@',
         'subTitle': '@'
