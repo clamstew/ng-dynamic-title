@@ -1,7 +1,12 @@
 angular.module('ng.dynamic-title').directive('ngDynamicTitle',[
-  function() {
+  '$rootScope',
+  '$timeout',
+  function(
+    $rootScope,
+    $timeout
+  ) {
 
-    function controller($scope, $element) {
+    function link($scope, $element) {
       function stateChangeCallback(event, toState) {
         var title;
 
@@ -18,16 +23,18 @@ angular.module('ng.dynamic-title').directive('ngDynamicTitle',[
           title = toState.data.ngDynamicTitle
         }
 
-        $element.text(title);
+        $timeout(function() {
+          $element.text(title);
+        }, 0, false);
       }
 
       // ui-router state change event
-      $scope.$on('$stateChangeSuccess', stateChangeCallback);
+      $rootScope.$on('$stateChangeSuccess', stateChangeCallback);
     }
 
     return {
       restrict: 'A',
-      controller: controller,
+      link: ['$scope', '$element', link],
       scope: {
         'rootTitle': '@',
         'subTitle': '@'
