@@ -33,6 +33,7 @@
     ".npmignore",
     "Gruntfile.js",
     "index.html",
-    "karma.conf.js"
+    "karma.conf.js",
+    "tasks"
   ]
 }
