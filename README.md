@@ -1,8 +1,8 @@
-# ng-dynamic-title
+# Angular.js 1.x: ng-dynamic-title
 
 **ng-dynamic-title** is an angular1.x library to update the `<head>`'s `<title>` tag text on `angular-ui-router` state change event: `$stateChangeSuccess`.
 
-[View Demo](http://clamstew.github.io/ng-dynamic-title/#/home)
+[View Demo & Docs](http://clamstew.github.io/ng-dynamic-title/#/home)
 
 ---
 
@@ -23,7 +23,6 @@ Add dependencies to your DOM:
 <script src="./node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script src="./node_modules/ng-dynamic-title/dist/ng-dynamic-title.min.js"></script>
 ```
-
 
 ---
 
@@ -47,7 +46,7 @@ Add dependencies to your DOM:
 ```javascript
 angular.module('myAwesomeApp',[
   'ui.router',
-  'ng.dynamic-title'
+  'ng.dynamic-title' // <-- Register ngDynamicTitle in main app module
 ]);
 
 angular.module('myAwesomeApp').config([

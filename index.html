@@ -23,9 +23,9 @@
       <div class="container">
         <div class="row">
 
-          <header ng-controller="rootCntl">
+          <header ng-controller="rootCntl" class="col-sm-8 col-sm-offset-2">
             <br />
-            <span style="display: block;text-align: center;" ng-class="{'bounce animated': animationClasses}">
+            <span style="display: block;text-align: center;margin-top: 20px;" ng-class="{'bounce animated': animationClasses}">
               <i class="fa fa-arrow-up" aria-hidden="true"></i>
               Look at the tab/window title to see this library work
             </span>
@@ -36,14 +36,16 @@
               <h1>ngDynamicTitle</h1>
               <p>Dynamic page titles in Angular.js 1.x when using ui-router</p>
               <p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Install</a>
-                <a class="btn btn-default btn-lg" ui-sref="home" role="button">Home</a>
+                <a class="btn btn-primary btn-lg" ui-sref="install" role="button">Install</a>
+                <!-- <a class="btn btn-default btn-lg" ui-sref="home" role="button">Home</a> -->
                 <a class="btn btn-default btn-lg" ui-sref="docs" role="button">Docs</a>
               </p>
             </div>
           </header>
 
-          <div ui-view></div>
+          <div class="col-sm-8 col-sm-offset-2">
+            <div ui-view></div>
+          </div>
 
         </div>
       </div>
@@ -55,6 +57,73 @@
 
       <script src="./src/module.js"></script>
       <script src="./src/update-page-title-directive.js"></script>
+
+      <script type="text/ng-template" id="/install.html">
+        <p><strong>Bower Install:</strong></p>
+
+        <pre>bower install ng-dynamic-title --save</pre>
+
+        <p><strong>NPM Install:</strong></p>
+
+        <pre>npm i ng-dynamic-title --save</pre>
+
+        <p><strong>Add dependencies to your DOM:</strong></p>
+
+        <pre>
+          &lt;script src="./node_modules/angular/angular.min.js">&lt;/script>
+          &lt;script src="./node_modules/angular-ui-router/release/angular-ui-router.min.js">&lt;/script>
+          &lt;script src="./node_modules/ng-dynamic-title/dist/ng-dynamic-title.min.js">&lt;/script>
+        </pre>
+      </script>
+
+      <script type="text/ng-template" id="/documentation.html">
+        <h3>Documentation</h3>
+
+        <strong>example html:</strong>
+
+        <pre>
+          &lt;html ng-app="myAwesomeApp">
+            &lt;head>
+              &lt;title ng-dynamic-title
+                     root-title="ngDynamicTitle Demo"
+                     sub-title="Subtitle goes here"
+                     >fallback title (tip: recommend it be same as root-title)&lt;/title>
+            &lt;/head>
+          &lt;/html>
+        </pre>
+
+        <strong>example javascript:</strong>
+
+        <pre>
+        angular.module('myAwesomeApp',[
+          'ui.router',
+          'ng.dynamic-title' // <-- Register ngDynamicTitle in main app module
+        ]);
+
+        angular.module('myAwesomeApp').config([
+          '$stateProvider',
+          '$urlRouterProvider',
+          function(
+            $stateProvider,
+            $urlRouterProvider
+          ) {
+
+          $urlRouterProvider.otherwise('home');
+
+          $stateProvider
+            .state('home', {
+              url: '/home',
+              template: 'home.html',
+              data: {
+                ngDynamicTitle: 'Homepage' // <-- Add data property here
+              }
+            });
+
+          }
+        ]);
+        </pre>
+
+      </script>
 
       <script type="text/javascript">
         // setup the demo module
@@ -85,9 +154,16 @@
                 ngDynamicTitle: 'Homepage'
               }
             })
+            .state('install', {
+              url: '/install',
+              templateUrl: '/install.html',
+              data: {
+                ngDynamicTitle: 'Install'
+              }
+            })
             .state('docs', {
               url: '/docs',
-              template: '<h3>Documentation</h3>',
+              templateUrl: '/documentation.html',
               data: {
                 ngDynamicTitle: 'Documentation'
               }
