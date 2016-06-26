@@ -2,7 +2,7 @@
 
 **ng-dynamic-title** is an angular1.x library to update the `<head>`'s `<title>` tag text on `angular-ui-router` state change event: `$stateChangeSuccess`.
 
-[View Demo & Docs](http://clamstew.github.io/ng-dynamic-title/#/home)
+[View Demo & Docs](http://clamstew.github.io/ng-dynamic-title)
 
 ---
 
