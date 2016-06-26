@@ -94,8 +94,18 @@ To use the demo to develop with run `http-server`.
 
 ---
 
-# Ideas:
+# Future Ideas for this lib
 
 * could add blink
 * could add a counter
 * toggle between 2 strings
+
+---
+
+# Similar Libs / Ideas
+
+* [ngPageTitle - only works with built in router but allows setting in controllers as well as on route setup](https://gist.github.com/hilios/34e0b9f968a4c688fc3d)
+* [Set to rootscope var and bind to template](http://conceptf1.blogspot.com/2014/11/angularjs-dynamic-page-title.html)
+* [npm ng-page-title on github - supports both built in router and ui-router - supports defaults only through interpolation](https://github.com/riggerthegeek/ng-page-title) & [ng-page-title on npm](https://www.npmjs.com/package/ng-page-title)
+* [bowers angular-ui-router-title - recommends hooking up with state resolves - supports ui-router](https://github.com/nonplus/angular-ui-router-title)
+* [ngMeta takes the approach of taking over all head tags and doing an init in the apps run block - only for built in router - neat holistic approach](http://vinaygopinath.github.io/ngMeta/#/)
