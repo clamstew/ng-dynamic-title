@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
         <link rel="stylesheet" href="//s.mlcdn.co/animate.css">
+        <!-- code highlighting -->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
     </head>
     <body>
 
@@ -54,8 +56,13 @@
         </div>
       </div>
 
+      <!-- setup code highlighting -->
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+
       <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+
+      <script src="//pc035860.github.io/angular-highlightjs/angular-highlightjs.min.js"></script>
 
       <!-- put dist file here -->
 
@@ -73,59 +80,59 @@
 
         <p><strong>Add dependencies to your DOM:</strong></p>
 
-        <pre>
-          &lt;script src="./node_modules/angular/angular.min.js">&lt;/script>
-          &lt;script src="./node_modules/angular-ui-router/release/angular-ui-router.min.js">&lt;/script>
-          &lt;script src="./node_modules/ng-dynamic-title/dist/ng-dynamic-title.min.js">&lt;/script>
-        </pre>
+        <div hljs hljs-no-escape>
+&lt;script src="./node_modules/angular/angular.min.js">&lt;/script>
+&lt;script src="./node_modules/angular-ui-router/release/angular-ui-router.min.js">&lt;/script>
+&lt;script src="./node_modules/ng-dynamic-title/dist/ng-dynamic-title.min.js">&lt;/script>
+        </div>
       </script>
 
       <script type="text/ng-template" id="/documentation.html">
         <h3>Documentation</h3>
 
-        <strong>example html:</strong>
+        <strong>basic example html:</strong>
 
-        <pre>
-          &lt;html ng-app="myAwesomeApp">
-            &lt;head>
-              &lt;title ng-dynamic-title
-                     root-title="ngDynamicTitle Demo"
-                     sub-title="Subtitle goes here"
-                     >fallback title (tip: recommend it be same as root-title)&lt;/title>
-            &lt;/head>
-          &lt;/html>
-        </pre>
+        <div hljs hljs-no-escape>
+&lt;html ng-app="myAwesomeApp">
+  &lt;head>
+    &lt;title ng-dynamic-title
+           root-title="ngDynamicTitle Demo"
+           sub-title="Subtitle goes here"
+           >fallback title (tip: recommend it be same as root-title)&lt;/title>
+  &lt;/head>
+&lt;/html>
+        </div>
 
-        <strong>example javascript:</strong>
+        <strong>basic example javascript:</strong>
 
-        <pre>
-        angular.module('myAwesomeApp',[
-          'ui.router',
-          'ng.dynamic-title' // <-- Register ngDynamicTitle in main app module
-        ]);
+        <div hljs hljs-no-escape>
+angular.module('myAwesomeApp',[
+  'ui.router',
+  'ng.dynamic-title' // <-- Register ngDynamicTitle in main app module
+]);
 
-        angular.module('myAwesomeApp').config([
-          '$stateProvider',
-          '$urlRouterProvider',
-          function(
-            $stateProvider,
-            $urlRouterProvider
-          ) {
+angular.module('myAwesomeApp').config([
+  '$stateProvider',
+  '$urlRouterProvider',
+  function(
+    $stateProvider,
+    $urlRouterProvider
+  ) {
 
-          $urlRouterProvider.otherwise('home');
+  $urlRouterProvider.otherwise('home');
 
-          $stateProvider
-            .state('home', {
-              url: '/home',
-              template: 'home.html',
-              data: {
-                ngDynamicTitle: 'Homepage' // <-- Add data property here
-              }
-            });
+  $stateProvider
+    .state('home', {
+      url: '/home',
+      template: 'home.html',
+      data: {
+        ngDynamicTitle: 'Homepage' // <-- Add data property here
+      }
+    });
 
-          }
-        ]);
-        </pre>
+  }
+]);
+        </div>
 
       </script>
 
@@ -133,8 +140,16 @@
         // setup the demo module
         angular.module('demoApp',[
           'ui.router',
+          'hljs',
           'ng.dynamic-title'
         ]);
+
+        angular.module('demoApp').config(function (hljsServiceProvider) {
+          hljsServiceProvider.setOptions({
+            // replace tab with 4 spaces
+            tabReplace: '    '
+          });
+        });
 
         // setup states for demo
         angular.module('demoApp').config([
