@@ -9,16 +9,17 @@ angular.module('ng.dynamic-title').directive('ngDynamicTitle',[
     function link($scope, $element) {
       function stateChangeCallback(event, toState) {
         var title;
+        $scope.separator = separator ? separator : '-';
 
         // build default title suffix
         if($scope.rootTitle && $scope.subTitle){
-          title = $scope.rootTitle+' | '+$scope.subTitle;
+          title = $scope.rootTitle+' '+$scope.separator+' '+$scope.subTitle;
         }
 
         // either prepend toState.data.ngDynamicTitle default scope titles
         // or display the title on toState.data.ngDynamicTitle
         if (toState.data && toState.data.ngDynamicTitle && title) {
-          title = toState.data.ngDynamicTitle + ' | ' + title;
+          title = toState.data.ngDynamicTitle + ' '+$scope.separator+' ' + title;
         } else {
           title = toState.data.ngDynamicTitle;
         }
@@ -37,7 +38,8 @@ angular.module('ng.dynamic-title').directive('ngDynamicTitle',[
       link: link,
       scope: {
         'rootTitle': '@',
-        'subTitle': '@'
+        'subTitle': '@',
+        'separator': '@'
       }
     };
 
