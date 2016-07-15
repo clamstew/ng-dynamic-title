@@ -1,6 +1,6 @@
 {
   "name": "ng-dynamic-title",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Dynamic page titles directive in angular 1.x when using ui-router",
   "scripts": {
     "test": "test"
