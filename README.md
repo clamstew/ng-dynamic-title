@@ -36,6 +36,8 @@ Add dependencies to your DOM:
     <title ng-dynamic-title
            root-title="ngDynamicTitle Demo"
            sub-title="Subtitle goes here"
+           separator="-" <!-- optional and default is '-' -->
+           separator-tagline="-" <!-- optional and default is '-' -->
            >fallback title (tip: recommend it be same as root-title)</title>
   </head>
 </html>
