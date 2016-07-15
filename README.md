@@ -79,6 +79,8 @@ Directive Options:
 * `$state.current.data.ngDynamicTitle` - The page name, such as "Home", "Blog", "Contact Us", etc.  Can be used in controller/directives to change the page title on the fly.
 * `root-title` - Usually the main name of the site or organization.
 * `sub-title` - This is typically some sort of tagline or description
+* `separator` - A separator between the page title and the site branding, typically ' - ' or ' | '
+* `separator-tagline` - A separator between the site branding and the tag line, typically ' - ' or ' | '
 
 ---
 
