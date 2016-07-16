@@ -2,6 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/ng-dynamic-title.svg)](https://badge.fury.io/js/ng-dynamic-title)
 [![Bower version](https://badge.fury.io/bo/ng-dynamic-title.svg)](https://badge.fury.io/bo/ng-dynamic-title)
+[![GitHub version](https://badge.fury.io/gh/clamstew%2Fng-dynamic-title.svg)](https://badge.fury.io/gh/clamstew%2Fng-dynamic-title)
 
 **ng-dynamic-title** is an angular1.x library to update the `<head>`'s `<title>` tag text on `angular-ui-router` state change event: `$stateChangeSuccess`.
 
@@ -81,7 +82,7 @@ angular.module('myAwesomeApp').config([
 
 Directive Options:
 
-* `$state.current.data.ngDynamicTitle` - The page name, such as "Home", "Blog", "Contact Us", etc.  Can be used in controller/directives to change the page title on the fly.
+* ~~`$state.current.data.ngDynamicTitle` - The page name, such as "Home", "Blog", "Contact Us", etc.  Can be used in controller/directives to change the page title on the fly.~~ (Not yet working)
 * `root-title` - Usually the main name of the site or organization.
 * `sub-title` - This is typically some sort of tagline or description
 * `separator` - A separator between the page title and the site branding, typically ' - ' or ' | '
