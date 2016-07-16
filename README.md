@@ -1,6 +1,7 @@
 # Angular.js 1.x: ng-dynamic-title
 
 [![npm version](https://badge.fury.io/js/ng-dynamic-title.svg)](https://badge.fury.io/js/ng-dynamic-title)
+[![Bower version](https://badge.fury.io/bo/ng-dynamic-title.svg)](https://badge.fury.io/bo/ng-dynamic-title)
 
 **ng-dynamic-title** is an angular1.x library to update the `<head>`'s `<title>` tag text on `angular-ui-router` state change event: `$stateChangeSuccess`.
 
