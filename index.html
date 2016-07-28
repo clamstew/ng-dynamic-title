@@ -15,7 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-        <link rel="stylesheet" href="//s.mlcdn.co/animate.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
         <!-- code highlighting -->
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
     </head>
@@ -39,7 +39,8 @@
             <br />
 
             <div class="jumbotron">
-              <h1>ngDynamicTitle</h1>
+              <h1 class="visible-md-block visible-lg-block">ngDynamicTitle</h1>
+              <h2 class="visible-xs-block visible-sm-block">ngDynamicTitle</h2>
               <p>Dynamic page titles in Angular.js 1.x when using ui-router</p>
               <p>
                 <a class="btn btn-primary btn-lg" ui-sref="install" role="button">Install</a>
@@ -53,6 +54,9 @@
             <div ui-view></div>
           </div>
 
+          <footer class="text-center" style="padding-top: 30px; margin: 30px 0 30px 0;">
+            <a href="https://twitter.com/clay_stewart" class="twitter-follow-button" data-show-count="false">Follow @clay_stewart</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </footer>
         </div>
       </div>
 
